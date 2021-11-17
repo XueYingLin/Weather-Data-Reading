@@ -12,8 +12,8 @@
 #             temperatures.append(int(row[1]))
 #     print(temperatures)
 
-import pandas
-weather_data = pandas.read_csv("weather_data.csv")
+# import pandas
+# weather_data = pandas.read_csv("weather_data.csv")
 # print(weather_data)
 # print(weather_data["temp"])
 
@@ -49,10 +49,37 @@ weather_data = pandas.read_csv("weather_data.csv")
 # print(monday_temp_f)
 
 #create a dataframe from scratch
-data_dict = {
-    "student": ["Amy", "James", "Angela"],
-    "scores": [76, 56, 65]
+# data_dict = {
+#     "student": ["Amy", "James", "Angela"],
+#     "scores": [76, 56, 65]
+# }
+# data = pandas.DataFrame(data_dict)
+# print(data)
+# data.to_csv("new_data.csv")
+
+#codes for central park squirrel file:
+import pandas
+squirrel_data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+# print(squirrel_data)
+grey_squirrel = squirrel_data[squirrel_data["Primary Fur Color"] == "Gray"]
+red_squirrel = squirrel_data[squirrel_data["Primary Fur Color"] == "Cinnamon"]
+black_squirrel = squirrel_data[squirrel_data["Primary Fur Color"] == "Black"]
+
+grey_count = len(grey_squirrel["Hectare Squirrel Number"])
+red_count = len(red_squirrel["Hectare Squirrel Number"])
+black_count = len(black_squirrel["Hectare Squirrel Number"])
+
+print(grey_count)
+print(red_count)
+print(black_count)
+
+squirrel_data_dict = {
+    "Fur Color": ["Gray", "Cinnamon", "Black"],
+    "Count": [grey_count, red_count, black_count]
+
 }
-data = pandas.DataFrame(data_dict)
-print(data)
-data.to_csv("new_data.csv")
+
+squirrel_dataFrame = pandas.DataFrame(squirrel_data_dict)
+squirrel_dataFrame.to_csv("squirrel_data.csv")
+print(squirrel_dataFrame)
+
